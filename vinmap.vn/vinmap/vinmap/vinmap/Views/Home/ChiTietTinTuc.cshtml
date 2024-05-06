@@ -1,0 +1,98 @@
+﻿@model List<vinmap.Models.TinTuc>
+@{
+
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from htmldemo.hasthemes.com/hono/hono/blog-single-sidebar-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:32:25 GMT -->
+<!-- Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <title>Chi tiết tin tức</title>
+
+    <!-- ::::::::::::::Favicon icon::::::::::::::-->
+  
+
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="~/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/ionicons.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/simple-line-icons.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/jquery-ui.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="~/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/venobox.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/jquery.lineProgressbar.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="~/assets/sass/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+</head>
+<body>
+
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Chi Tiết Tin Tức @Model[0].TieuDe</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/Home/Index">Home</a></li>
+                                    <li><a href="">Tin Tức</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-section">
+        <div class="container">
+            <div class="row flex-column-reverse flex-lg-row">
+
+                <div class="col-lg-12">
+                    <!-- Start Blog Single Content Area -->
+                    <div class="blog-single-wrapper">
+                        <div class="blog-single-img" data-aos="fade-up" data-aos-delay="0">
+                            <img class="img-fluid" src="@Model[0].IMG" alt="">
+                        </div>
+                       
+                        <h4 class="post-title" data-aos="fade-up" data-aos-delay="400">@Model[0].TieuDe</h4>
+                        <div class="para-content" data-aos="fade-up" data-aos-delay="600">
+                            <p>@Html.Raw(Model[0].NoiDung)</p>
+                        </div>
+
+                    </div> <!-- End Blog Single Content Area -->
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Blog Single Section:::... -->
+
+
+
+    <script src="~/assets/js/vendor/vendor.min.js"></script>
+    <script src="~/assets/js/plugins/plugins.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+
+</html>

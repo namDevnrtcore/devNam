@@ -1,0 +1,210 @@
+﻿@model List<admin.vinmap.vn.Models.TinTuc>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Tin Tức</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/assets\css\vendor.min.css">
+    <link rel="stylesheet" href="~/assets\vendor\icon-set\style.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="~/assets\css\theme.min.css?v=1.0">
+</head>
+
+<body class="   footer-offset">
+    <style>
+        /* Custom styling for the search input */
+        div.dataTables_wrapper {
+            margin-bottom: 3em;
+        }
+
+            div.dataTables_wrapper div.dataTables_filter {
+                text-align: right;
+            }
+
+            div.dataTables_wrapper div.dataTables_paginate {
+                text-align: right;
+            }
+
+        a {
+            padding: 5px 5px 5px 5px;
+        }
+    </style>
+    <script src="~/assets\vendor\hs-navbar-vertical-aside\hs-navbar-vertical-aside-mini-cache.js"></script>
+
+
+
+
+
+
+    <script src="~/assets\js\demo.js"></script>
+
+    <script src="~/assets\js\demo.js"></script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <main id="content" role="main" class="main">
+        <!-- Content -->
+        <div class="content container-fluid">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row align-items-end">
+                    <div class="col-sm mb-2 mb-sm-0">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-no-gutter">
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="Index">Home</a></li>
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="">Tin Tức</a></li>
+                            </ol>
+                        </nav>
+
+                        <h1 class="page-header-title">Product</h1>
+                    </div>
+
+                   
+                </div>
+                <!-- End Row -->
+            </div>
+                <div class="col-sm-auto">
+                    <a class="btn btn-primary" href="AddTinTuc">
+                        <i class="tio-user-add mr-1"></i> Thêm mới tin tức
+                    </a>
+                    </div>
+            <div class="card">
+                <!-- Header -->
+                <!-- End Header -->
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table id="gridTable" class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên </th>
+                                                         
+                                <th>Hình ảnh</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.Count; i++)
+                            {
+                                <tr id="@Model[i].ID">
+
+                                    <td>@(i + 1)</td>
+                                    <td>@Model[i].TieuDe</td>
+                                                                  
+                                    <td><img src="@Model[i].IMG" alt="Product Image" style="max-width: 50px; max-height: 50px;" /></td>
+
+                                    <td>
+
+                                        <button class="btn btn-primary btn-update" data-toggle="tooltip" data-placement="top" title="Sửa">
+                                            <i class="tio-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-delete" data-id="@Model[i].ID" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                            <i class="tio-delete"></i>
+                                        </button>
+
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <!-- End Table -->
+                <!-- Footer -->
+                <!-- End Footer -->
+            </div>
+            <!-- End Card -->
+        </div>
+
+
+
+
+
+
+
+    </main>
+
+    <script src="~/assets\js\vendor.min.js"></script>
+
+
+
+    <!-- JS Front -->
+    <script src="~/assets\js\theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+
+</body>
+</html>
+<
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<!-- ... your existing code ... -->
+
+<script>
+ 
+
+
+    $(document).ready(function () {
+        // ... your existing code ...
+
+        // Handle click event for the update button
+        $('#gridTable tbody').on('click', 'button.btn-primary', function () {
+            var row = $(this).closest('tr');
+            var productId = row.attr('id');
+
+            // Redirect to the update page or show a modal for update
+            window.location.href = '/Home/UpdateTinTuc/' + productId; // Replace 'YourController' with your actual controller name
+        });
+    });
+
+
+
+    $(document).ready(function () {
+        // Handle delete button click
+        $('.btn-delete').on('click', function () {
+            var itemId = $(this).data('id');
+
+            // Confirm before deletion
+            if (confirm('Bạn chắc chắn muốn xóa tin tức?')) {
+                // Send AJAX request to the controller
+                $.ajax({
+                    url: '/Home/DeleteTintuc',  // Update with your controller and action
+                    type: 'POST',
+                    data: { id: itemId },
+                    success: function (result) {
+                        alert('Xóa thành công.');
+                        location.reload();
+                    },
+                    error: function () {
+                        alert('Xóa thất bại.');
+                       
+                    }
+                });
+            }
+        });
+    });
+</script>

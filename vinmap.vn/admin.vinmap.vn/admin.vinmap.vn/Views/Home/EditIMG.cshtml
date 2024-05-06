@@ -1,0 +1,286 @@
+﻿@model List<admin.vinmap.vn.Models.ProductImage>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Tin Tức</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/assets\css\vendor.min.css">
+    <link rel="stylesheet" href="~/assets\vendor\icon-set\style.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="~/assets\css\theme.min.css?v=1.0">
+</head>
+
+<body class="   footer-offset">
+    <style>
+        /* Custom styling for the search input */
+        div.dataTables_wrapper {
+            margin-bottom: 3em;
+        }
+
+            div.dataTables_wrapper div.dataTables_filter {
+                text-align: right;
+            }
+
+            div.dataTables_wrapper div.dataTables_paginate {
+                text-align: right;
+            }
+
+        a {
+            padding: 5px 5px 5px 5px;
+        }
+    </style>
+    <script src="~/assets\vendor\hs-navbar-vertical-aside\hs-navbar-vertical-aside-mini-cache.js"></script>
+
+
+
+
+
+
+    <script src="~/assets\js\demo.js"></script>
+
+    <script src="~/assets\js\demo.js"></script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+
+
+    <script src="~/assets\js\vendor.min.js"></script>
+
+
+
+    <!-- JS Front -->
+    <script src="~/assets\js\theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+
+    <div id="image-container">
+        @if (Model != null && Model.Count > 0)
+        {
+            @for (var i = 0; i < Model.Count; i++)
+            {
+                var image = Model[i];
+                <div class="image-item" data-id="@image.NewID">
+                    <input type="hidden" value="@image.NewID" />
+                    <img src="@Url.Content(image.Link)" alt="Product Image" style="width: 10%;">
+                    <input type="file" class="file-input" data-index="@i" accept="image/*" />
+                    <button type="button" class="update-button" data-index="@i">Update</button>
+                    <button type="button" class="delete-button" data-id="@image.NewID">Delete</button>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No product images available.</p>
+        }
+
+        <h3>Thêm mới ảnh</h3>
+        <div class="add-image-form">
+            <input type="hidden" value="@Model[0].IDIMG" id="IDIMG" />
+            <input type="file" class="file-input" name="newImage" accept="image/*" />
+            <button type="button" id="addImageButton">Thêm ảnh</button>
+            <div id="previewContainer" style="display: none;">
+                <img id="imagePreview" alt="Preview" style="max-width: 100%; max-height: 200px;" />
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>
+<
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<!-- ... your existing code ... -->
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi người dùng chọn một ảnh mới
+        $('.file-input').change(function () {
+            var parentDiv = $(this).closest('.image-item');
+            var imgElement = parentDiv.find('img');
+
+            // Hiển thị ảnh mới trên trình duyệt
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imgElement.attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+
+       
+        $('.update-button').click(function () {
+            var parentDiv = $(this).closest('.image-item');
+            var index = $(this).data('index');
+            var id = parentDiv.data('id');
+
+            var formData = new FormData();
+            var fileInput = parentDiv.find('.file-input')[0];
+
+           
+            if (fileInput.files.length === 0) {
+               
+                alert('Bạn chưa thêm ảnh mới.');
+                return;
+            }
+
+            formData.append('ProductDetailImages', fileInput.files[0]);
+            formData.append('NewID', id);
+
+          
+            $.ajax({
+                url: '/Home/UpdateIMG',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    if (result == true) {
+                       
+                        alert('Sửa ảnh thành công');
+                    } else {
+                      
+                        alert('Sửa ảnh thất bại');
+                    }
+                },
+                error: function (error) {
+                  
+                    console.error('Sửa ảnh thất bại', error);
+                }
+            });
+
+        });
+    });
+
+
+
+    $(document).ready(function () {     
+        $('.delete-button').click(function () {
+            var imageId = $(this).data('id');          
+            $.ajax({
+                url: '/Home/DeleteImage',
+                type: 'POST',
+                data: { imageId: imageId },
+                success: function (result) {
+                    if (result === true) {                     
+                        alert('Xóa ảnh thành công');                   
+                        location.reload();
+                    } else {                        
+                        alert('Xóa ảnh thất bại');
+                    }
+                },
+                error: function (error) {                    
+                    console.error('Xóa ảnh thất bại', error);
+                }
+            });
+        });
+    });
+</script>
+<script>
+
+    $(document).ready(function () {
+      
+        $('.file-input').change(function () {
+           
+            showImagePreview(this);
+        });
+
+       
+        $('.add-image-form .file-input').change(function () {
+           
+            showImagePreview(this);
+        });
+
+     
+        $('#addImageButton').click(function () {
+           
+            resetImagePreview();
+        });
+    });
+
+    function showImagePreview(input) {
+        // Kiểm tra xem có file hình ảnh nào đã được chọn hay không
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // Hiển thị ảnh xem trước
+                $('#imagePreview').attr('src', e.target.result);
+                $('#previewContainer').show();
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function resetImagePreview() {
+        // Reset input file và ẩn ảnh xem trước
+        $('.file-input').val('');
+        $('#previewContainer').hide();
+    }
+
+      
+       
+
+       
+        $('#addImageButton').click(function () {
+            // Lấy giá trị của IDIMG
+            var idImgValue = $('#IDIMG').val();
+
+            var formData = new FormData();
+            var fileInput = $('.add-image-form .file-input')[0];
+
+            formData.append('newImage', fileInput.files[0]);
+            formData.append('IDIMG', idImgValue);
+
+            $.ajax({
+                url: '/Home/AddNewImage',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    if (result === true) {
+                        alert('Thêm ảnh thành công');
+                        location.reload();
+                    } else {
+                        alert('Thêm ảnh thất bại');
+                    }
+                },
+                error: function (error) {
+                    // Hiển thị thông báo thất bại nếu có lỗi
+                    console.error('Thêm ảnh thất bại', error);
+                }
+            });
+        });
+</script>

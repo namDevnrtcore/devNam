@@ -1,0 +1,629 @@
+﻿@model List<vinmap.Models.ListProduct>
+@{
+
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from htmldemo.hasthemes.com/hono/hono/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:31:04 GMT -->
+<!-- Added by HTTrack -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vin map - Trang chủ</title>
+
+
+
+
+
+    <link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- Thêm Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+
+    <!-- Thêm jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Thêm Slick Slider JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+
+
+
+</head>
+<body>
+
+    <div class="hero-slider-section">
+        <div class="hero-slider-active swiper-container">
+            <div class="swiper-wrapper">
+                <div class="hero-single-slider-item swiper-slide">
+                    <div class="hero-slider-bg">
+                        <img src="@Model[0].Banners[0].Banner1" alt="">
+                    </div>
+                </div>
+                <div class="hero-single-slider-item swiper-slide">
+                    <div class="hero-slider-bg">
+                        <img src="@Model[0].Banners[0].Banner2" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination active-color-golden"></div>
+            <div class="swiper-button-prev d-none d-lg-block"></div>
+            <div class="swiper-button-next d-none d-lg-block"></div>
+        </div>
+    </div>
+
+    <!-- End Hero Slider Section-->
+    <!-- Start Service Section -->
+    <div class="service-promo-section section-top-gap-100">
+        <div class="service-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="0">
+                            <div class="image">
+                                <img src="~/assets/images/icons/service-promo-1.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">MIỄN PHÍ VẬN CHUYỂN</h6>
+                                <p>Nhận lại 10% tiền mặt, giao hàng miễn phí, trả lại miễn phí và hơn thế nữa tại hơn 1000 nhà bán lẻ hàng đầu!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="image">
+                                <img src="~/assets/images/icons/service-promo-2.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">30 NGÀY HOÀN TIỀN</h6>
+                                <p>Đảm bảo sự hài lòng 100% hoặc nhận lại tiền trong vòng 30 ngày!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="image">
+                                <img src="~/assets/images/icons/service-promo-3.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">THANH TOÁN AN TOÀN</h6>
+                                <p>Thanh toán bằng các phương thức thanh toán an toàn và phổ biến nhất thế giới.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="600">
+                            <div class="image">
+                                <img src="~/assets/images/icons/service-promo-4.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">KHÁCH HÀNG TRUNG THÀNH</h6>
+                                <p>Thẻ cho 30% giao dịch mua còn lại của họ với tỷ lệ hoàn lại tiền là 1%.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Service Section -->
+    <!-- Start Banner Section -->
+    <div class="banner-section section-top-gap-100 section-fluid">
+        <div class="banner-wrapper">
+            <div class="container-fluid">
+                <div class="row mb-n6">
+                    <div class="col-lg-12 col-12 mb-6">
+                        <div class="row mb-n6">
+                            <!-- Start Banner Single Item -->
+                            <div class="col-lg-3 col-sm-6 mb-6">
+                                <div class="banner-single-item banner-style-2 banner-animation img-responsive" data-aos="fade-up" data-aos-delay="0">
+                                    <div class="image">
+                                        <img src="~/assets/images/trangtri1.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Banner Single Item -->
+                            <!-- Start Banner Single Item -->
+                            <div class="col-lg-3 col-sm-6 mb-6">
+                                <div class="banner-single-item banner-style-2 banner-animation img-responsive" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="image">
+                                        <img src="~/assets/images/trangtri2.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Banner Single Item -->
+                            <!-- Start Banner Single Item -->
+                            <div class="col-lg-3 col-sm-6 mb-6">
+                                <div class="banner-single-item banner-style-2 banner-animation img-responsive" data-aos="fade-up" data-aos-delay="0">
+                                    <div class="image">
+                                        <img src="~/assets/images/trangtri3.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Banner Single Item -->
+                            <!-- Start Banner Single Item -->
+                            <div class="col-lg-3 col-sm-6 mb-6">
+                                <div class="banner-single-item banner-style-2 banner-animation img-responsive" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="image">
+                                        <img src="~/assets/images/trangtri4.webp" alt="">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End Banner Single Item -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Banner Section -->
+    <!-- Start Product Default Slider Section -->
+    <div class="product-default-slider-section section-top-gap-100 section-fluid section-inner-bg" @*style="background: rgb(254,45,45)"*@>
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">Camera hành trình</h3>
+                                <a href="/Home/CameraHanhTrinh">Tất cả</a>
+
+                            </div>
+                            <a class="image-link" href="/Home/CameraHanhTrinh">
+                                <img src="~/assets/images/camerahanhtrinh.png" alt="" style="width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-default-slider-4grid-1row" id="swiper1">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    @foreach (var product in Model)
+                                    {
+                                        @if (product.LoaiSP == "Camera hành trình")
+                                        {
+                                            <div class="product-default-single-item product-color--golden swiper-slide">
+                                                <div class="image-box">
+                                                    <a class="image-link">
+                                                        <img src="@product.IMG" alt="">
+                                                    </a>
+                                                    <div class="action-link">
+                                                        <div class="action-link-left">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID" data-bs-toggle="modal" data-bs-target="#modalAddcart">Chi Tiết</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="content-left">
+                                                        <h6 class="title">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID">
+                                                                @product.TenSP
+                                                            </a>
+                                                        </h6>
+                                                        <ul class="review-star">
+                                                            @for (int i = 0; i < 5; i++)
+                                                            {
+                                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <div class="content-right">
+                                                        <span class="price">@product.GiaSP </span> <a>VND</a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev swiper-button-prev-1"></div>
+                            <div class="swiper-button-next swiper-button-next-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="product-default-slider-section section-top-gap-100 section-fluid section-inner-bg">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">Camera nghị định 10</h3>
+                                <a href="/Home/CameraNghiDinh">Tất cả</a>
+
+                            </div>
+                            <a class="image-link" href="/Home/CameraNghiDinh">
+                                <img src="~/assets/images/cameranghidiinh.png" alt="" style="width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-default-slider-4grid-1row" id="swiper2">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    @foreach (var product in Model)
+                                    {
+                                        @if (product.LoaiSP == "Camera nghị định 10")
+                                        {
+                                            <div class="product-default-single-item product-color--golden swiper-slide">
+                                                <div class="image-box">
+                                                    <a class="image-link">
+                                                        <img src="@product.IMG" alt="">
+                                                    </a>
+                                                    <div class="action-link">
+                                                        <div class="action-link-left">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID" data-bs-toggle="modal" data-bs-target="#modalAddcart">Chi Tiết</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="content-left">
+                                                        <h6 class="title">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID">
+                                                                @product.TenSP
+                                                            </a>
+                                                        </h6>
+                                                        <ul class="review-star">
+                                                            @for (int i = 0; i < 5; i++)
+                                                            {
+                                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <div class="content-right">
+                                                        <span class="price">@product.GiaSP </span> <a>VND</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev swiper-button-prev-2"></div>
+                            <div class="swiper-button-next swiper-button-next-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Product Default Slider Section -->
+    <!-- Start Banner Section -->
+    <div class="product-default-slider-section section-top-gap-100 section-fluid section-inner-bg">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">Màn Hình Android  </h3>
+                                <a href="/Home/ManHinhAndroid">Tất cả</a>
+                            </div>
+                            <a class="image-link" href="/Home/ManHinhAndroid">
+                                <img src="~/assets/images/androidmanhinh.png" alt="" style="width:100%;">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-default-slider-4grid-1row" id="swiper3">
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    @foreach (var product in Model)
+                                    {
+                                        @if (product.LoaiSP == "Màn Hình Android Ô tô")
+                                        {
+                                            <div class="product-default-single-item product-color--golden swiper-slide">
+                                                <div class="image-box">
+                                                    <a class="image-link">
+                                                        <img src="@product.IMG" alt="">
+                                                    </a>
+                                                    <div class="action-link">
+                                                        <div class="action-link-left">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID" data-bs-toggle="modal" data-bs-target="#modalAddcart">Chi Tiết</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="content-left">
+                                                        <h6 class="title">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID">
+                                                                @product.TenSP
+                                                            </a>
+                                                        </h6>
+                                                        <ul class="review-star">
+                                                            @for (int i = 0; i < 5; i++)
+                                                            {
+                                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <div class="content-right">
+                                                        <span class="price">@product.GiaSP </span> <a>VND</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev swiper-button-prev-3"></div>
+                            <div class="swiper-button-next swiper-button-next-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="product-default-slider-section section-top-gap-100 section-fluid section-inner-bg">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">Định Vị Ô tô Xe Máy </h3>
+                                <a href="/Home/DinhViOTo">Tất cả</a>
+                            </div>
+                            <a class="image-link" href="/Home/DinhViOTo">
+                                <img src="~/assets/images/dinhvixemay.png" alt="" style="width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-default-slider-4grid-1row" id="swiper3">
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    @foreach (var product in Model)
+                                    {
+                                        @if (product.LoaiSP == "Định vị ô tô xe máy")
+                                        {
+                                            <div class="product-default-single-item product-color--golden swiper-slide">
+                                                <div class="image-box">
+                                                    <a class="image-link">
+                                                        <img src="@product.IMG" alt="">
+                                                    </a>
+                                                    <div class="action-link">
+                                                        <div class="action-link-left">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID" data-bs-toggle="modal" data-bs-target="#modalAddcart">Chi Tiết</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="content-left">
+                                                        <h6 class="title">
+                                                            <a href="#" class="detail-link" data-product-id="@product.ID">
+                                                                @product.TenSP
+                                                            </a>
+                                                        </h6>
+                                                        <ul class="review-star">
+                                                            @for (int i = 0; i < 5; i++)
+                                                            {
+                                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <div class="content-right">
+                                                        <span class="price">@product.GiaSP </span> <a>VND</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev swiper-button-prev-3"></div>
+                            <div class="swiper-button-next swiper-button-next-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="blog-default-slider-section section-top-gap-100 section-fluid">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">Tin tức</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="blog-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-default-slider default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container blog-slider">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Start Product Default Single Item -->
+                                    @foreach (var product in Model)
+                                    {
+                                        foreach (var tinTuc in product.TinTucs)
+                                        {
+                                            <div class="blog-default-single-item blog-color--golden swiper-slide">
+                                                <div class="image-box">
+                                                    <a class="image-link">
+                                                        <img class="img-fluid" src="@tinTuc.IMG" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="title">
+                                                        <a href="@Url.Action("ChiTietTinTuc", "Home", new { id = tinTuc.ID })">@tinTuc.TieuDe</a>
+                                                    </h6>
+                                                    <p>@Html.Raw(tinTuc.NoiDungTT)</p>
+                                                    <div class="inner">
+                                                        <a href="@Url.Action("ChiTietTinTuc", "Home", new { id = tinTuc.ID })" class="read-more-btn icon-space-left">Đọc thêm<span><i class="ion-ios-arrow-thin-right"></i></span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <!-- End Product Default Single Item -->
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Blog Slider Section -->
+    <!-- Start Instagramr Section -->
+    <div class="instagram-section section-top-gap-100 section-inner-bg">
+        <div class="instagram-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="instagram-box">
+                            <div id="instagramFeed" class="instagram-grid clearfix">
+                                <a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" class="instagram-image-link float-left banner-animation"><img src="~/assets/images/fb1.jpg" alt=""></a>
+                                <a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" class="instagram-image-link float-left banner-animation"><img src="~/assets/images/fb2.jpg" alt=""></a>
+                                <a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" class="instagram-image-link float-left banner-animation"><img src="~/assets/images/fb3.jpg" alt=""></a>
+                                <a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" class="instagram-image-link float-left banner-animation"><img src="~/assets/images/fb4.jpg" alt=""></a>
+                                <a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" class="instagram-image-link float-left banner-animation"><img src="~/assets/images/fb5.jpg" alt=""></a>
+                                <a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" class="instagram-image-link float-left banner-animation"><img src="~/assets/images/fb6.jpg" alt=""></a>
+                            </div>
+                            <div class="instagram-link">
+                                <h5><a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?locale=vi_VN" target="_blank" rel="noopener noreferrer">Xem thêm</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagramr Section -->
+    <!-- Start Footer Section -->
+    <!-- End Footer Section -->
+    <!-- material-scrolltop button -->
+    <button class="material-scrolltop" type="button"></button>
+
+
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <script>
+        alert('@Html.Raw(ViewBag.SuccessMessage)');
+        </script>
+    }
+    <script src="~/assets/js/vendor/vendor.min.js"></script>
+    <script src="~/assets/js/plugins/plugins.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+<!-- Mirrored from htmldemo.hasthemes.com/hono/hono/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:31:38 GMT -->
+</html>

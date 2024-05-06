@@ -1,0 +1,239 @@
+﻿<link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+<link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css">
+<link rel="stylesheet" href="~/assets/css/style.css">
+<link rel="icon" href="~/assets/images/logo_vinmap.png" type="image/png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<header class="header-section d-none d-xl-block">
+    <div class="header-wrapper">
+        <div class="header-bottom header-bottom-color--golden section-fluid sticky-header sticky-color--golden">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <!-- Start Header Logo -->
+                        <div class="header-logo">
+                            <div class="logo">
+                                <a href="/Home/Index"><img src="~/assets/images/logo trang (1).png" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- End Header Logo -->
+                        <!-- Start Header Main Menu -->
+                        <div class="main-menu menu-color--black menu-hover-color--golden">
+                            <nav>
+                                <ul>
+                                    <li class="has-dropdown">
+                                        <a href="/Home/Index">Trang chủ</a>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="/Home/CameraHanhTrinh">Camera hành trình <i class="fa fa-angle-down"></i></a>
+                                        <!-- Sub Menu -->
+                                        @*<ul class="sub-menu">
+                                            <li><a href="/Home/CameraHanhTrinh">Camea hành trình</a></li>
+                                            <li><a href="/Home/CameraHanhTrinh">Camea hành trình</a></li>
+                                        </ul>*@
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="/Home/CameraNghiDinh">Camera nghị định<i class="fa fa-angle-down"></i></a>
+                                        <!-- Sub Menu -->
+                                        @*<ul class="sub-menu">
+                                            <li><a href="/Home/CameraNghiDinh">Camera nghị định</a></li>
+                                            <li><a href="/Home/CameraNghiDinh">Camera nghị định</a></li>
+                                        </ul>*@
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="/Home/ManHinhAndroid">Màn Hình Android Ô tô <i class="fa fa-angle-down"></i></a>
+                                        <!-- Sub Menu -->
+                                        @*<ul class="sub-menu">
+                                            <li><a href="/Home/CameraXeKhach">Màn Hình Android Ô tô</a></li>
+                                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+                                        </ul>*@
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="/Home/DinhViOTo">Định vị ô tô xe máy <i class="fa fa-angle-down"></i></a>
+                                        <!-- Sub Menu -->
+                                        @*<ul class="sub-menu">
+                                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+                                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+                                        </ul>*@
+                                    </li>
+                                    <li>
+                                        <a href="/Home/TinTuc">Tin tức</a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                        <ul class="header-action-link action-color--black action-hover-color--golden">
+                            <li>
+                                <a href="#search">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#offcanvas-about" class="offacnvas offside-about offcanvas-toggle">
+                                    <i class="fa fa-phone"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Start Header Area -->
+<!-- Start Mobile Header -->
+<div class="mobile-header mobile-header-bg-color--golden section-fluid d-lg-block d-xl-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-between">
+                <!-- Start Mobile Left Side -->
+                <div class="mobile-header-left">
+                    <ul class="mobile-menu-logo">
+                        <li>
+                            <a href="/Home/Index">
+                                <div class="logo" style="width:40%;">
+                                    <img src="~/assets/images/logo trang (1).png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mobile-right-side">
+                    <ul class="header-action-link action-color--black action-hover-color--golden">
+                        <li>
+                            <a href="#search">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu">
+                                 <i class="fa fa-phone"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Mobile Right Side -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Mobile Header -->
+<!--  Start Offcanvas Mobile Menu Section -->
+<div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+    <!-- Start Offcanvas Header -->
+    <div class="offcanvas-header text-right">
+        <button class="offcanvas-close"><i class="ion-android-close"></i></button>
+    </div> <!-- End Offcanvas Header -->
+    <!-- Start Offcanvas Mobile Menu Wrapper -->
+    <div class="offcanvas-mobile-menu-wrapper">
+        <!-- Start Mobile Menu  -->
+        <div class="mobile-menu-bottom">
+            <!-- Start Mobile Menu Nav -->
+            <div class="offcanvas-menu">
+                <ul>
+                    <li>
+                        <a href="/Home/Index">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="/Home/CameraHanhTrinh"><span>Camera hành trình</span></a>
+                        @*<ul class="mobile-sub-menu">
+                            <li><a href="/Home/CameraHanhTrinh">Camea hành trình</a></li>
+                            <li><a href="/Home/CameraHanhTrinh">Camea hành trình</a></li>
+                        </ul>*@
+                    </li>
+                    <li>
+                        <a href="/Home/CameraNghiDinh"><span>Camera nghị định 10</span></a>
+                        @*<ul class="mobile-sub-menu">
+                            <li><a href="/Home/CameraNghiDinh">Camera nghị định</a></li>
+                            <li><a href="/Home/CameraNghiDinh">Camera nghị định</a></li>
+                        </ul>*@
+                    </li>
+                    <li>
+                        <a href="/Home/ManHinhAndroid"><span>Màn hình Android</span></a>
+                        @*<ul class="mobile-sub-menu">
+                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+
+                        </ul>*@
+                    </li>
+                      <li>
+                        <a href="/Home/DinhViOTo"><span>Định vị ô tô </span></a>
+                        @*<ul class="mobile-sub-menu">
+                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+                            <li><a href="/Home/CameraXeKhach">Định vị ô tô xe máy</a></li>
+
+                        </ul>*@
+                    </li>
+                    <li><a href="/Home/TinTuc">Tin tức</a></li>
+                   
+                </ul>
+            </div> <!-- End Mobile Menu Nav -->
+        </div> <!-- End Mobile Menu -->
+        <!-- Start Mobile contact Info -->
+        <div class="mobile-contact-info">
+            <div class="logo">
+                <a href="/Home/Index"><img src="~/assets/images/logo trang (1).png" alt=""></a>
+            </div>
+
+            <address class="address">
+                <span>Địa chỉ: Số 55/19/1A, Tổ 5 KP.1 P,TRẢNG DÀI TP.BIÊN HÒA,ĐỒNG NAI</span>
+                <span>SDT: <a href="tel:0568868268" style="color:white;">0568868268</a></span>
+                <span>Email: vinmapvn@gmail.com</span>
+            </address>
+
+            <ul class="social-link">
+                <li><a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?mibextid=LQQJ4d"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://zalo.me/0568868268"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <!-- End Mobile contact Info -->
+
+    </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+</div> <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+<!-- Start Offcanvas Mobile Menu Section -->
+<div id="offcanvas-about" class="offcanvas offcanvas-rightside offcanvas-mobile-about-section">
+    <!-- Start Offcanvas Header -->
+    <div class="offcanvas-header text-right">
+        <button class="offcanvas-close"><i class="ion-android-close"></i></button>
+    </div> <!-- End Offcanvas Header -->
+    <!-- Start Offcanvas Mobile Menu Wrapper -->
+    <!-- Start Mobile contact Info -->
+    <div class="mobile-contact-info">
+        <div class="logo">
+            <a href="/Home/Index"><img src="~/assets/images/logo trang (1).png" alt=""></a>
+        </div>
+
+        <address class="address">
+            <span>Địa chỉ: Số 55/19/1A, Tổ 5 KP.1 P,TRẢNG DÀI TP.BIÊN HÒA,ĐỒNG NAI</span>
+            <span>SDT: <a href="tel:0568868268" style="color:white;">0568868268</a></span>
+            <span>Email: vinmapvn@gmail.com</span>
+        </address>
+
+        <ul class="social-link">
+            <li><a href="https://www.facebook.com/vinmap.vncameraxetaixekhach?mibextid=LQQJ4d"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://zalo.me/0568868268"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+
+
+    </div>
+
+</div>
+
+<div id="search" class="search-modal">
+    <button type="button" class="close">×</button>
+    <form action="/Home/Search" method="POST">
+        <input type="search" name="searchTerm" placeholder="Nhập tên sản phẩm cần tìm" />
+        <button type="submit" class="btn btn-lg btn-golden">Tìm kiếm</button>
+    </form>
+</div>
+
+<!-- End Offcanvas Search Bar Section -->
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>

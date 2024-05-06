@@ -1,0 +1,151 @@
+﻿@model admin.vinmap.vn.Models.Banner
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Tin Tức</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/assets\css\vendor.min.css">
+    <link rel="stylesheet" href="~/assets\vendor\icon-set\style.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="~/assets\css\theme.min.css?v=1.0">
+</head>
+
+<body class="   footer-offset">
+    <style>
+        /* Custom styling for the search input */
+        div.dataTables_wrapper {
+            margin-bottom: 3em;
+        }
+
+            div.dataTables_wrapper div.dataTables_filter {
+                text-align: right;
+            }
+
+            div.dataTables_wrapper div.dataTables_paginate {
+                text-align: right;
+            }
+
+        a {
+            padding: 5px 5px 5px 5px;
+        }
+    </style>
+    <script src="~/assets\vendor\hs-navbar-vertical-aside\hs-navbar-vertical-aside-mini-cache.js"></script>
+
+
+
+
+
+
+    <script src="~/assets\js\demo.js"></script>
+
+    <script src="~/assets\js\demo.js"></script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+<main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row align-items-end">
+                <div class="col-sm mb-2 mb-sm-0">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-no-gutter">
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="/Home/Index">Home</a></li>
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="">Banner</a></li>
+                        </ol>
+                    </nav>
+
+                    <h1 class="page-header-title">Banner</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display banners and update option -->
+        @using (Html.BeginForm("Banner", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <!-- Display the first banner -->
+                <img id="previewBanner1" src="@Model.Banner1" alt="Banner 1" class="img-fluid">
+                <div class="mt-2">
+                    <!-- Input file for updating the first banner -->
+                    <input type="file" id="fileBanner1" name="fileBanner1" accept="image/*" onchange="previewImage('fileBanner1', 'previewBanner1')">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Display the second banner -->
+                <img id="previewBanner2" src="@Model.Banner2" alt="Banner 2" class="img-fluid">
+                <div class="mt-2">
+                    <!-- Input file for updating the second banner -->
+                    <input type="file" id="fileBanner2" name="fileBanner2" accept="image/*" onchange="previewImage('fileBanner2', 'previewBanner2')">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Banners</button>
+        }
+
+
+    </div>
+</main>
+
+
+    <script src="~/assets\js\vendor.min.js"></script>
+
+
+
+    <!-- JS Front -->
+    <script src="~/assets\js\theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<!-- ... your existing code ... -->
+
+<script>
+ 
+
+    function previewImage(inputId, previewId) {
+        var fileInput = document.getElementById(inputId);
+        var previewImage = document.getElementById(previewId);
+
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // Hiển thị hình ảnh trước khi upload
+                previewImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+  
+
+</script>

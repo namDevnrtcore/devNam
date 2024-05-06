@@ -1,0 +1,280 @@
+﻿@model admin.vinmap.vn.Models.ListProduct
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Chỉnh sửa sản phẩm </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/assets\css\vendor.min.css">
+    <link rel="stylesheet" href="~/assets\vendor\icon-set\style.css">
+
+
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="~/assets\css\theme.min.css?v=1.0">
+</head>
+
+<body class="   footer-offset">
+
+    <script src="~/assets\vendor\hs-navbar-vertical-aside\hs-navbar-vertical-aside-mini-cache.js"></script>
+
+
+
+
+    <script src="~/assets\js\demo.js"></script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <main id="content" role="main" class="main">
+
+        <!-- Content -->
+        <div class="content container-fluid">
+            <!-- Step Form -->
+            <div class="page-header">
+                <div class="row align-items-end">
+                    <div class="col-sm mb-2 mb-sm-0">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-no-gutter">
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="Index">Home</a></li>
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="Product"> Product</a></li>
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="">Update Product</a></li>
+                            </ol>
+                        </nav>
+
+                        <h1 class="page-header-title">Update Product</h1>
+                    </div>
+
+
+                </div>
+                <!-- End Row -->
+            </div>
+            <form class="js-step-form py-md-5" method="POST" action="/Home/UpdateProduct" enctype="multipart/form-data">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-8">
+                        <!-- Step -->
+
+                        <div id="addUserStepFormContent">
+                            <!-- Card -->
+                            <div id="addUserStepProfile" class="card card-lg active">
+                                <!-- Body -->
+                                <div class="card-body">
+
+                                    <!-- End Form Group -->
+                                    <!-- Form Group -->
+                                    <div class="row form-group">
+                                        <label for="productName" class="col-sm-3 col-form-label input-label">Tên SP</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="productName" id="productName" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm" value="@(Model != null ? Model.TenSP : "")">
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <label for="productPrice" class="col-sm-3 col-form-label input-label">Giá SP</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control" name="productPrice" id="productPrice" placeholder="Giá sản phẩm" aria-label="Giá sản phẩm" value="@(Model != null && Model.GiaSP != null ? Model.GiaSP.ToString() : "")">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="productType" class="col-sm-3 col-form-label input-label">Loại SP</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="productType" id="productType">
+                                                <!-- Check if Model and LoaiSP are not null before accessing -->
+                                                @if (Model != null && Model.LoaiSP != null)
+                                                {
+                                                    <option selected value="@Model.LoaiSP">@Model.LoaiSP</option>
+                                                }
+                                                <option value="Camera hành trình">Camera hành trình</option>
+                                                <option value="Camera nghị định 10">Camera nghị định 10</option>
+                                                <option value="Màn Hình Android Ô tô">Màn Hình Android Ô tô</option>
+                                                <option value="Định vị ô tô xe máy">Định vị ô tô xe máy</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row form-group">
+                                        <label for="productNote" class="col-sm-3 col-form-label input-label">Ghi chú</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="productNote" id="productNote" placeholder="Ghi chú về sản phẩm" aria-label="Ghi chú về sản phẩm">@(Model != null && Model.GhiChu != null ? Model.GhiChu : "")</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <label for="productSpec" class="col-sm-3 col-form-label input-label">Thông số SP</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="productSpec" id="productSpec" placeholder="Thông số sản phẩm" aria-label="Thông số sản phẩm">@(Model != null && Model.ThongSoSP != null ? Model.ThongSoSP : "")</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <label for="productMainImage" class="col-sm-3 col-form-label input-label">Hình ảnh chính</label>
+                                        <div class="col-sm-9">
+                                            <label for="file-upload" class="custom-file-upload">
+                                                Chọn ảnh
+                                            </label>
+                                            <input type="file" class="form-control-file" name="productMainImage" id="file-upload" accept="image/*" onchange="displayFileName(this, 'productMainImageName')">
+                                            <span class="file-name" id="productMainImageName"></span>
+
+                                            <!-- Null check before setting the src attribute -->
+                                            @if (Model != null && !string.IsNullOrEmpty(Model.IMG))
+                                            {
+                                                <img id="productMainImagePreview" src="@Model.IMG" style="max-width: 100px; max-height: 100px;" />
+                                            }
+
+                                            <button type="button" onclick="removeImage('file-upload', 'productMainImagePreview', 'productMainImageName')">Xóa ảnh</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Body -->
+                                <!-- Footer -->
+                             <input type="hidden" name="ID" value='@(Model != null && Model.ID != null ? Model.ID.ToString() : "")' />
+
+                                <div class="card-footer d-flex justify-content-end align-items-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        Update <i class="tio-chevron-right"></i>
+                                    </button>
+                                </div>
+
+                                <!-- End Footer -->
+                            </div>
+                            <!-- End Card -->
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Row -->
+            </form>
+            <!-- End Step Form -->
+        </div>
+        <!-- End Content -->
+        <!-- Footer -->
+        <!-- End Footer -->
+    </main>
+
+    <script src="~/assets\js\vendor.min.js"></script>
+
+
+
+    <!-- JS Front -->
+    <script src="~/assets\js\theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+
+</body>
+</html>
+<style>
+    /* Ẩn input file mặc định */
+    input[type="file"] {
+        display: none;
+    }
+
+    /* Thiết kế nút tải ảnh tùy chỉnh */
+    .custom-file-upload {
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        color: #333;
+        text-align: center;
+    }
+
+        /* Khi di chuột vào nút tải ảnh */
+        .custom-file-upload:hover {
+            background-color: #e5e5e5;
+        }
+
+    /* Hiển thị tên file đã chọn */
+    .file-name {
+        margin-top: 5px;
+        display: inline-block;
+        font-size: 14px;
+    }
+</style>
+<script>
+    function displayFileName(input, targetSpan) {
+        var fileInput = input;
+        var fileName = fileInput.files[0].name;
+        var span = document.getElementById(targetSpan);
+        span.innerHTML = fileName;
+
+        // Hiển thị hình ảnh nếu là ô chọn hình ảnh sản phẩm chính
+        if (input.id === "file-upload") {
+            displayImage(fileInput, "productMainImagePreview");
+        }
+        // Hiển thị hình ảnh nếu là ô chọn hình ảnh chi tiết
+        if (input.id === "file-uploadIMG") {
+            displayImage(fileInput, "productDetailImagePreview");
+        }
+        if (input.id === "file-uploadIMG1") {
+            displayImage(fileInput, "productDetailImagePreview1");
+        }
+        if (input.id === "file-uploadIMG2") {
+            displayImage(fileInput, "productDetailImagePreview2");
+        }
+        if (input.id === "file-uploadIMG3") {
+            displayImage(fileInput, "productDetailImagePreview3");
+        }
+        if (input.id === "file-uploadIMG4") {
+            displayImage(fileInput, "productDetailImagePreview4");
+        }
+        if (input.id === "file-uploadIMG5") {
+            displayImage(fileInput, "productDetailImagePreview5");
+        }
+    }
+
+    function displayImage(input, targetImage) {
+        var fileInput = input;
+        var imagePreview = document.getElementById(targetImage);
+
+        // Kiểm tra xem trình duyệt có hỗ trợ FileReader không
+        if (window.FileReader) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+    function removeImage(inputId, imagePreviewId, imageNameId) {
+        // Lấy các phần tử DOM theo ID
+        var input = document.getElementById(inputId);
+        var imagePreview = document.getElementById(imagePreviewId);
+        var imageName = document.getElementById(imageNameId);
+
+        // Xóa giá trị của ô chọn file
+        input.value = "";
+
+        // Xóa hình ảnh và tên file hiển thị
+        imagePreview.src = "";
+        imageName.innerHTML = "";
+    }
+
+</script>
+<script src="~/assets/css/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('productSpec');
+    CKEDITOR.replace('productNote');
+</script>

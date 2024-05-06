@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Test\vinmap.vn</_PublishTargetUrl>
+    <History>True|2024-01-30T09:46:29.0121043Z;True|2024-01-29T00:48:46.0676527+07:00;True|2024-01-02T20:51:51.4123933+07:00;True|2023-12-27T16:22:05.0416105+07:00;True|2023-12-27T16:17:42.7101046+07:00;True|2023-12-27T15:58:47.2764984+07:00;True|2023-12-27T15:44:31.4552250+07:00;True|2023-12-27T15:29:07.6520247+07:00;</History>
+  </PropertyGroup>
+</Project>

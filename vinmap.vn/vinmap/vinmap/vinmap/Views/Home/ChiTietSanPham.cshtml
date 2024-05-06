@@ -1,0 +1,310 @@
+﻿@model List<vinmap.Models.ListProduct>
+@{
+
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<head>
+    <!-- Mirrored from htmldemo.hasthemes.com/hono/hono/product-details-default.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:32:21 GMT -->
+    <!-- Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Chi tiết sản phẩm</title>
+
+    <!-- ::::::::::::::Favicon icon::::::::::::::-->
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico" type="image/png">
+
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="~/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/ionicons.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/simple-line-icons.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/jquery-ui.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="~/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/venobox.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/jquery.lineProgressbar.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="~/assets/sass/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+</head>
+<body>
+
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Chi tiết sản phẩm @Model[0].TenSP</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/Home/Index">Home</a></li>
+                                    <li><a href="">Chi tiết sản phẩm</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+    <!-- Start Product Details Section -->
+    <div class="product-details-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="product-details-gallery-area" data-aos="fade-up" data-aos-delay="0">
+                        <!-- Start Large Image -->
+                        <div class="product-large-image product-large-image-horaizontal swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="@Model[0].IMG" alt="">
+                                </div>
+                                @foreach (var image in Model[0].ProductDetailImages)
+                                {
+                                    <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                        <img src="@image" alt="">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <!-- End Large Image -->
+                        <!-- Start Thumbnail Image -->
+                        <div class="product-image-thumb product-image-thumb-horizontal swiper-container pos-relative mt-5">
+                            <div class="swiper-wrapper">
+                                <div class="product-image-thumb-single swiper-slide">
+                                    <img class="img-fluid" src="@Model[0].IMG" alt="">
+                                </div>
+                                @foreach (var image in Model[0].ProductDetailImages)
+                                {
+                                    <div class="product-image-thumb-single swiper-slide">
+                                        <img class="img-fluid" src="@image" alt="">
+                                    </div>
+                                }
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="gallery-thumb-arrow swiper-button-next"></div>
+                            <div class="gallery-thumb-arrow swiper-button-prev"></div>
+                        </div>
+                        <!-- End Thumbnail Image -->
+                    </div>
+                </div>
+
+                <div class="col-xl-7 col-lg-6">
+                    <div class="product-details-content-area product-details--golden" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Start  Product Details Text Area-->
+                        <div class="product-details-text">
+                            <h4 class="title">@Model[0].TenSP</h4>
+                            <div class="d-flex align-items-center">
+                                <ul class="review-star">
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                </ul>
+                                <a href="#" class="customer-review ml-2">(khách hàng đánh giá)</a>
+                            </div>
+                            <span class="price">@Model[0].GiaSP </span> <a>VND</a>
+                            <div class="single-tab-content-item">
+                                @Html.Raw(Model[0].ThongSoSP)
+                            </div>
+                        </div> <!-- End  Product Details Text Area-->
+                        <!-- Start Product Variable Area -->
+                        <div class="product-details-variable">
+                          
+                            <!-- Product Variable Single Item -->
+
+                            <div class="d-flex align-items-center ">
+                                <div class="variable-single-item ">
+                                    <span>Số lượng</span>
+                                    <div class="product-variable-quantity">
+                                        <input min="1" max="100" value="1" type="number">
+                                    </div>
+                                </div>
+
+                                <div class="product-add-to-cart-btn">
+                                    <a href="#" id="muaNgayBtn" class="btn btn-block btn-lg btn-black-default-hover" data-bs-toggle="modal" data-bs-target="#modalAddcart">Mua Ngay</a>
+                                </div>
+                               
+                            </div>
+                            <!-- Start  Product Details Meta Area-->
+
+                        </div> <!-- End Product Variable Area -->
+                        <!-- Start  Product Details Catagories Area-->
+                        <!-- Start  Product Details Social Area-->
+                        <div class="product-details-social">
+                            <span class="title">Tư vấn thêm:</span>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div> <!-- End  Product Details Social Area-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Product Details Section -->
+    <!-- Start Product Content Tab Section -->
+    <div class="product-details-content-tab-section section-top-gap-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-details-content-tab-wrapper" data-aos="fade-up" data-aos-delay="0">
+
+                        <!-- Start Product Details Tab Button -->
+                        <ul class="nav tablist product-details-content-tab-btn d-flex justify-content-center">
+                            <li>
+                                <a class="nav-link active" data-bs-toggle="tab" href="#description">
+                                    Mô tả sản phẩm 
+                                </a>
+                            </li>
+                           
+
+                        </ul> <!-- End Product Details Tab Button -->
+                        <!-- Start Product Details Tab Content -->
+                        <div class="product-details-content-tab">
+                            <div class="tab-content">
+                                <!-- Start Product Details Tab Content Singel -->
+                                <div class="tab-pane active show" id="description">
+                                    <div class="single-tab-content-item">
+                                        @Html.Raw(Model[0].GhiChu)
+
+                                    </div>
+                                </div> <!-- End Product Details Tab Content Singel -->
+                                <!-- Start Product Details Tab Content Singel -->
+                              
+                                <!-- Start Product Details Tab Content Singel -->
+
+                            </div>
+                        </div> <!-- End Product Details Tab Content -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Product Content Tab Section -->
+    <!-- Start Product Default Slider Section -->
+    <div class="product-default-slider-section section-top-gap-100 section-fluid section-inner-bg" @*style="background: rgb(254,45,45)"*@>
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">Sản phẩm liên quan</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-default-slider-4grid-1row" id="swiper1">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    @for (int i = 1; i < Model.Count; i++)
+                                    {
+                                        var product = Model[i];
+                                        <div class="product-default-single-item product-color--golden swiper-slide">
+                                            <div class="image-box">
+                                                <a class="image-link">
+                                                    <img src="@product.IMG" alt="">
+                                                </a>
+                                                <div class="action-link">
+                                                    <div class="action-link-left">
+                                                        <a href="#" class="detail-link" data-product-id="@product.ID" data-bs-toggle="modal" data-bs-target="#modalAddcart">Chi Tiết</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="content-left">
+                                                    <h6 class="title">
+                                                        <a href="#" class="detail-link" data-product-id="@product.ID">
+                                                            @product.TenSP
+                                                        </a>
+                                                    </h6>
+                                                    <ul class="review-star">
+                                                        @for (int j = 0; j < 5; j++)
+                                                        {
+                                                            <li class="fill"><i class="ion-android-star"></i></li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                                <div class="content-right">
+                                                    <span class="price">@product.GiaSP </span> <a>VND</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev swiper-button-prev-1"></div>
+                            <div class="swiper-button-next swiper-button-next-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/assets/js/vendor/vendor.min.js"></script>
+    <script src="~/assets/js/plugins/plugins.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+<!-- Mirrored from htmldemo.hasthemes.com/hono/hono/product-details-default.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:32:23 GMT -->
+</html>
+<script>
+ document.getElementById('muaNgayBtn').addEventListener('click', function () {
+    // Get selected product details
+    var productId = @Model[0].ID;
+    var productName = '@Model[0].TenSP';
+    var productPrice = '@Model[0].GiaSP'.replace('.', ','); 
+    var IMG = '@Model[0].IMG';
+    var productQuantity = document.querySelector('.product-variable-quantity input').value;
+
+    // Navigate to the ThanhToan/Home page with the selected product details as query parameters
+    window.location.href = '/Home/ThanhToan?productId=' + productId +                          
+                           '&productQuantity=' + productQuantity;
+});
+
+
+
+</script>

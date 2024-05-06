@@ -1,0 +1,196 @@
+﻿@model List<vinmap.Models.ListProduct>
+    @{
+
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+   }
+
+    <!DOCTYPE html>
+    <html lang="zxx">
+
+    <!-- Mirrored from htmldemo.hasthemes.com/hono/hono/shop-grid-sidebar-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:32:23 GMT -->
+    <!-- Added by HTTrack -->
+   
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Tìm kiếm</title>
+
+        <!-- ::::::::::::::Favicon icon::::::::::::::-->
+     
+
+        <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+        <!-- Vendor CSS -->
+        <!-- <link rel="stylesheet" href="~/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/ionicons.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/simple-line-icons.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/jquery-ui.min.css"> -->
+        <!-- Plugin CSS -->
+        <!-- <link rel="stylesheet" href="~/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/venobox.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/jquery.lineProgressbar.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/aos.min.css"> -->
+        <!-- Main CSS -->
+        <!-- <link rel="stylesheet" href="~/assets/sass/style.css"> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css">
+        <link rel="stylesheet" href="~/assets/css/style.css">
+
+    </head>
+    <body>
+
+
+        <!-- ...:::: Start Breadcrumb Section:::... -->
+        <div class="breadcrumb-section breadcrumb-bg-color--golden">
+            <div class="breadcrumb-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="breadcrumb-title">Search</h3>
+                            <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                                <nav aria-label="breadcrumb">
+                                    <ul>
+                                        <li><a href="/Home/Index">Home</a></li>                                   
+                                        <li class="active" aria-current="page">Search</li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ...:::: End Breadcrumb Section:::... -->
+        <!-- ...:::: Start Shop Section:::... -->
+        <div class="shop-section">
+            <div class="container">
+                <div class="row flex-column-reverse flex-lg-row">
+                    <div class="col-lg-3">
+                        <!-- Start Sidebar Area -->
+                        <div class="siderbar-section" data-aos="fade-up" data-aos-delay="0">
+
+                            <!-- Start Single Sidebar Widget -->
+                            <div class="sidebar-single-widget">
+                                <h6 class="sidebar-title">Search</h6>
+                                <form action="/Home/Search" method="POST">
+                                   
+                                    <div class="default-search-style d-flex">
+                                        <input class="default-search-style-input-box" type="search" name="searchTerm" placeholder="Tìm ..." >
+                                        <button class="default-search-style-input-btn" type="submit"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="sidebar-single-widget">
+                                <h6 class="sidebar-title">Sản phẩm</h6>
+                                <div class="sidebar-content">
+                                    <ul class="sidebar-menu">
+                                        <li><a href="@Url.Action("Search", "Home", new { searchTerm = "camerahanhtrinh" })">Camera hành trình</a></li>
+                                        <li><a href="@Url.Action("Search", "Home", new { searchTerm = "cameranghidinh" })">Camera nghị định</a></li>
+                                        <li><a href="@Url.Action("Search", "Home", new { searchTerm = "cameraxekhach" })">Định vị ô tô xe máy</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-single-widget">
+                                <h6 class="sidebar-title">Theo giá</h6>
+                                <div class="sidebar-content">
+                                    <ul class="sidebar-menu">
+                                        <li><a href="@Url.Action("Search", "Home", new { searchTerm = "1trieuden5trieu" })">1 triệu -> 5 triệu</a></li>
+                                        <li><a href="@Url.Action("Search", "Home", new { searchTerm = "5trieuden10trieu" })">5 triệu -> 10 triệu</a></li>
+                                        <li><a href="@Url.Action("Search", "Home", new { searchTerm = "tren10trieu" })">trên 10 triệu</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div> <!-- End Sidebar Area -->
+                    </div>
+                    <div class="col-lg-9">                                                               
+                        <div class="sort-product-tab-wrapper">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="tab-content tab-animate-zoom">
+                                            <!-- Start Grid View Product -->
+                                            <div class="tab-pane active show sort-layout-single" id="layout-3-grid">
+                                                <div class="row">
+                                                    @if (Model.Any())
+                                                    {
+                                                        @foreach (var product in Model)
+                                                        {
+                                                            <div class="col-xl-4 col-sm-6 col-12">
+                                                                <!-- Start Product Default Single Item -->
+                                                                <div class="product-default-single-item product-color--golden" data-aos="fade-up" data-aos-delay="0">
+                                                                    <div class="image-box">
+                                                                        <a href="product-details-default.html" class="image-link">
+                                                                            <img src="@product.IMG" alt="">
+
+
+                                                                        </a>
+                                                                        <div class="action-link">
+                                                                            <div class="action-link-left">
+                                                                                <a href="#" class="detail-link" data-product-id="@product.ID" data-bs-toggle="modal" data-bs-target="#modalAddcart">Chi Tiết</a>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="content">
+                                                                        <div class="content-left">
+                                                                            <h6 class="title">
+                                                                                <a href="#" class="detail-link" data-product-id="@product.ID">
+                                                                                    @product.TenSP
+                                                                                </a>
+                                                                            </h6>
+                                                                            <ul class="review-star">
+                                                                                @for (int i = 0; i < 5; i++)
+                                                                                {
+                                                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                                                }
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="content-right">
+                                                                            <span class="price">@product.GiaSP </span> <a>VND</a>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- End Product Default Single Item -->
+                                                            </div>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color: red; text-align: center;">Không có sản phẩm nào tồn tại.</p>
+                                                    }
+                                                </div>
+                                            </div> <!-- End Grid View Product -->
+                                            <!-- Start List View Product -->
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End Tab Wrapper -->
+                        <!-- Start Pagination -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ...:::: End Shop Section:::... -->
+        <!-- Start Footer Section -->
+        </br>
+        <script src="~/assets/js/vendor/vendor.min.js"></script>
+        <script src="~/assets/js/plugins/plugins.min.js"></script>
+
+        <!-- Main JS -->
+        <script src="~/assets/js/main.js"></script>
+    </body>
+
+    <!-- Mirrored from htmldemo.hasthemes.com/hono/hono/shop-grid-sidebar-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:32:23 GMT -->
+</html>

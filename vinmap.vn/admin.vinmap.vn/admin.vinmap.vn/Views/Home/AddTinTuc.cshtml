@@ -1,0 +1,200 @@
+﻿@model admin.vinmap.vn.Models.TinTuc
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Chỉnh sửa sản phẩm </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iUNnJTn4Pe3L4utBvSZEX1QMKJ4L/6WKtjU9FQSqlsFf9WOMJ8Sf6NQ="
+          crossorigin="anonymous">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/assets\css\vendor.min.css">
+    <link rel="stylesheet" href="~/assets\vendor\icon-set\style.css">
+
+
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="~/assets\css\theme.min.css?v=1.0">
+</head>
+
+<body class="   footer-offset">
+
+    <script src="~/assets\vendor\hs-navbar-vertical-aside\hs-navbar-vertical-aside-mini-cache.js"></script>
+
+
+
+
+    <script src="~/assets\js\demo.js"></script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <main id="content" role="main" class="main">
+
+        <!-- Content -->
+        <div class="content container-fluid">
+            <!-- Step Form -->
+            <div class="page-header">
+                <div class="row align-items-end">
+                    <div class="col-sm mb-2 mb-sm-0">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-no-gutter">
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="/Home/Index">Home</a></li>
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="/Home/TinTuc"> Tin Tức</a></li>
+                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="">Thêm mới Tin Tức</a></li>
+                            </ol>
+                        </nav>
+
+                        <h1 class="page-header-title">Update Tin Tức</h1>
+                    </div>
+
+
+                </div>
+                <!-- End Row -->
+            </div>
+            <form class="js-step-form py-md-5" method="POST" action="/Home/AddTinTuc" enctype="multipart/form-data">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-8">
+                        <!-- Step -->
+
+                        <div id="addUserStepFormContent">
+                            <!-- Card -->
+                            <div id="addUserStepProfile" class="card card-lg active">
+                                <!-- Body -->
+                                <div class="card-body">
+
+                                    <!-- End Form Group -->
+                                    <!-- Form Group -->
+                                    <div class="row form-group">
+                                        <label for="TieuDe" class="col-sm-3 col-form-label input-label">Tên Tin Tức</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="TieuDe" id="TieuDe" placeholder="Tên tin tức" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="productMainImage" class="col-sm-3 col-form-label input-label">Hình ảnh chính</label>
+                                        <div class="col-sm-9">
+                                            <label for="file-upload" class="custom-file-upload">
+                                                Chọn ảnh
+                                            </label>
+                                            <input type="file" class="form-control-file" name="ProductMainImage" id="file-upload" accept="image/*" onchange="displayImageAndName(this, 'productMainImageName', 'productMainImagePreview')">
+
+                                            <span class="file-name" id="productMainImageName"></span>
+                                            <img id="productMainImagePreview" style="max-width: 100px; max-height: 100px;" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <label for="NoiDungTT" class="col-sm-3 col-form-label input-label">Nôi dung TT</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="NoiDungTT" id="NoiDungTT" placeholder="Nôi dung"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="NoiDung" class="col-sm-3 col-form-label input-label">Nội dung</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="NoiDung" id="NoiDung" placeholder="Nôi dung"> </textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                               
+                                <!-- End Body -->
+                                <!-- Footer -->
+                                <div class="card-footer d-flex justify-content-end align-items-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        Thêm mới <i class="tio-chevron-right"></i>
+                                    </button>
+                                </div>
+
+                                <!-- End Footer -->
+                            </div>
+                            <!-- End Card -->
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Row -->
+            </form>
+            <!-- End Step Form -->
+        </div>
+        <!-- End Content -->
+        <!-- Footer -->
+        <!-- End Footer -->
+    </main>
+
+    <script src="~/assets\js\vendor.min.js"></script>
+
+
+
+    <!-- JS Front -->
+    <script src="~/assets\js\theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+
+</body>
+</html>
+<style>
+    /* Ẩn input file mặc định */
+    input[type="file"] {
+        display: none;
+    }
+
+    /* Thiết kế nút tải ảnh tùy chỉnh */
+    .custom-file-upload {
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        color: #333;
+        text-align: center;
+    }
+
+        /* Khi di chuột vào nút tải ảnh */
+        .custom-file-upload:hover {
+            background-color: #e5e5e5;
+        }
+
+    /* Hiển thị tên file đã chọn */
+    .file-name {
+        margin-top: 5px;
+        display: inline-block;
+        font-size: 14px;
+    }
+</style>
+<script src="~/assets/css/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('NoiDungTT');
+    CKEDITOR.replace('NoiDung');
+</script>
+<script>
+    function displayImageAndName(input, targetSpan, targetImage) {
+        var fileInput = input;
+        var fileName = fileInput.files[0].name;
+        var span = document.getElementById(targetSpan);
+        span.innerHTML = fileName;
+
+        // Hiển thị hình ảnh
+        var imagePreview = document.getElementById(targetImage);
+        imagePreview.src = URL.createObjectURL(fileInput.files[0]);
+    }
+</script>

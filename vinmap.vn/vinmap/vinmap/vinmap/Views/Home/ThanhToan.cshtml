@@ -1,0 +1,169 @@
+﻿@model vinmap.Models.SelectedProduct
+@{
+
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <title>Thanh toán</title>
+
+
+    <link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+</head>
+<body>
+
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Cart</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/Home/Index">Home</a></li>
+                                    <li><a href="">Thanh Toán</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+    <!-- ...:::: Start Cart Section:::... -->
+    <div class="cart-section">
+        <form id="orderForm" action="/Home/ThanhToan" method="post">
+            <!-- Start Cart Table -->
+            <div class="cart-table-wrapper" data-aos="fade-up" data-aos-delay="0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table_desc">
+                                <div class="table_page table-responsive">
+                                    <table>
+                                        <!-- Start Cart Table Head -->
+                                        <thead>
+                                            <tr>
+
+                                                <th class="">Hình ảnh</th>
+                                                <th class="">Tên sản phẩm</th>
+                                                <th class="">Giá</th>
+                                                <th class="">Số lượng</th>
+                                                <th class="">Tổng tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td class="product_thumb"><a><img src="@Model.IMG" alt=""></a></td>
+                                                <td class="product_name"><a>@Model.Name</a></td>
+                                                <td class="product-price">@Model.Price<span>VND</span></td>
+                                                <td class="product_quantity">
+                                                    <input min="1" max="100" value="@Model.productQuantity" type="number" oninput="updateTotal(this)">
+                                                </td>
+                                                <td class="product_total">@Model.Total<span>VND</span></td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Cart Table -->
+
+            <input type="hidden" name="giatien" value="@Model.Price" />
+            <input type="hidden" name="tensp" value="@Model.Name" />
+            <input type="hidden" name="hinhanh" value="@Model.IMG" />
+            <input type="hidden" name="soluong" id="soluong" value="@Model.productQuantity" />
+            <input type="hidden" name="tongtien" id="tongtien" value="@Model.Total" />
+
+            <!-- Start Coupon Start -->
+            <div class="coupon_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="coupon_code left" data-aos="fade-up" data-aos-delay="200">
+                                <h3>Thông tin liên hệ</h3>
+                                <div class="cart_subtotal" style="padding-top:5px;">
+                                    <div class="col-md-4" style="padding-left:5px;">
+                                        <p>Họ và tên</p>
+                                    </div>
+                                    <div class="col-md-8" style="border:1px;">
+                                        <input placeholder="Họ và tên" type="text" name="hoten">
+                                    </div>
+                                </div>
+                                <div class="cart_subtotal" style="padding-top:5px;">
+                                    <div class="col-md-4" style="padding-left:5px;">
+                                        <p>Số điện thoại</p>
+                                    </div>
+                                    <div class="col-md-8" style="border:1px;">
+                                        <input placeholder="Số điện thoại" type="number" name="sdt">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="coupon_code right" data-aos="fade-up" data-aos-delay="400">
+                                <h3>Hóa đơn</h3>
+                                <div class="coupon_inner">
+                                    <div class="cart_subtotal">
+                                        <p>Số tiền </p>
+                                        <p class="cart_amout">@Model.Price VND</p>
+                                    </div>
+                                    <div class="cart_subtotal ">
+                                        <p>Số lượng</p>
+                                        <p class="cart_quantity">@Model.productQuantity</p>
+                                    </div>
+
+
+                                    <div class="cart_subtotal">
+                                        <p>Tổng tiền</p>
+                                        <p class="cart_total">@Model.Total VND</p>
+                                    </div>
+                                    <div class="checkout_btn">
+                                        <button type="submit" class="btn btn-md btn-golden">Đặt hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Coupon Start -->
+        </form>
+    </div> <!-- ...:::: End Cart Section:::... -->
+    <!-- Start Footer Section -->
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+       <script>
+           alert(@ViewBag.SuccessMessage);
+       </script>
+    }
+    <script src="~/assets/js/vendor/vendor.min.js"></script>
+    <script src="~/assets/js/plugins/plugins.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+<!-- Mirrored from htmldemo.hasthemes.com/hono/hono/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Jan 2021 00:32:24 GMT -->
+</html>
